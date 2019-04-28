@@ -3,9 +3,10 @@
   position: absolute;
   top: 10vh;
   left: 30vw;
-  height: 60vh;
-  width: 40vw;
+  height: 59.8vh;
+  width: 32vw;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  overflow: hidden;
 }
 
 .todo-list-container {
@@ -35,7 +36,7 @@
 }
 
 .list li {
-  height: 35px;
+  height: 3.5vh;
   width: 100%;
   padding: 1em;
 }
