@@ -3,20 +3,23 @@
   position: absolute;
   top: 10vh;
   left: 30vw;
-  height: 59.8vh;
+  height: auto;
+  max-height: 59.8vh;
   width: 32vw;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  overflow: hidden;
 }
 
 .todo-list-container {
-  height: 91%;
+  position: absolute;
+  height: auto;
+  max-height: 59.8vh;
   width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
 .add-todo {
+  position: fixed;
   margin: 0 !important;
   width: 100%;
 }
@@ -28,7 +31,7 @@
 }
 
 .list {
-  height: 100%;
+  height: auto;
   width: 100%;
   margin: 0;
   list-style: none;
@@ -37,7 +40,7 @@
 
 .list li {
   height: 3.5vh;
-  width: 100%;
+  width: auto;
   padding: 1em;
 }
 
@@ -52,10 +55,12 @@ li:hover {
 /* Scroll Bar */
 ::-webkit-scrollbar {
   -webkit-appearance: none;
+  background-color: rgba(0,0,0,0);
 }
 
 ::-webkit-scrollbar:vertical {
   width: 11px;
+  background-color: rgba(0,0,0,0);
 }
 
 ::-webkit-scrollbar:horizontal {
@@ -63,13 +68,12 @@ li:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 0;
-  border: 2px solid white;
-  background-color: rgba(0, 0, 0, .5);
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #fff;
+  background-color: rgba(0,0,0,0);
   border-radius: 0;
 }
 
