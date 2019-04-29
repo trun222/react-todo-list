@@ -12,12 +12,17 @@ function App() {
   const [todos, setTodos] = useState([]);
   let [list, setList] = useState([]);
   const [todoCount, setTodoCount] = useState('');
+  const [color, setColor] = useState('#d3d3d3');
+
+  let rowStyle = {
+    background: color
+  };
 
   useEffect(() => {
     setList(todos.map((item, index) => {
       return (
         <CSSTransition key={item.id} in={true} timeout={500} classNames="move">
-          <li key={index.id}>
+          <li key={index.id} style={{ background: index % 2 === 1 ? color : '#ffff'}}>
             <Grid container spacing={8}>
               <Grid className="background" item xs={10}>
                 <span>{index+1}. {item.text}</span>
@@ -36,6 +41,10 @@ function App() {
   }, [todos, todoCount, list]);
 
   return (
+    <div>
+          <div className="color-picker">
+      <input type="color" onChange={(e) => { setColor(e.target.value) }}></input>
+    </div>
       <div className="todo-list-component">
         <div className="add-todo-container">
           <TextField
@@ -56,6 +65,7 @@ function App() {
           </ul>
         </div>
       </div>
+    </div>
   );
 }
 
