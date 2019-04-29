@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import './TodoList.css';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import TextField from '@material-ui/core/TextField';
@@ -7,16 +7,12 @@ import Grid from '@material-ui/core/Grid';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import uuidv4 from 'uuid/v4';
 
-function App() {
+function TodoList() {
   const [todo, setTodo] = useState('');
   const [todos, setTodos] = useState([]);
   let [list, setList] = useState([]);
   const [todoCount, setTodoCount] = useState('');
   const [color, setColor] = useState('#d3d3d3');
-
-  let rowStyle = {
-    background: color
-  };
 
   useEffect(() => {
     setList(todos.map((item, index) => {
@@ -69,4 +65,4 @@ function App() {
   );
 }
 
-export default App;
+export default TodoList;
