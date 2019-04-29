@@ -24,7 +24,7 @@ function TodoList() {
                 <span>{index+1}. {item.text}</span>
               </Grid>
               <Grid item xs={2}>
-                <IconButton color={"secondary"} aria-label="Delete" onClick={() => { setTodos(todos.filter((todo, i) => { if(index !== i) { return todo } })) }}>
+                <IconButton color={"secondary"} aria-label="Delete" onClick={() => { handleRemoveTodo(index) }}>
                   <DeleteIcon fontSize="small" />
                 </IconButton>
               </Grid>
@@ -36,11 +36,26 @@ function TodoList() {
     setTodoCount(list.length > 0 ? `Todo (${list.length})` : 'Todo');
   }, [todos, todoCount, list]);
 
+  // Handle when a Todo is 'added'
+  function handleAddTodo(e) {
+    if(e.target.value) {
+      if(e.key === 'Enter') {
+        setTodos([{ text: e.target.value, id: uuidv4() }, ...todos]);
+        setTodo('');
+      }
+    }
+  }
+
+  // Handle when a Todo is 'removed'
+  function handleRemoveTodo(index) {
+    setTodos(todos.filter((todo, i) => { if(index !== i) { return todo } }));
+  }
+
   return (
     <div>
-          <div className="color-picker">
-      <input type="color" onChange={(e) => { setColor(e.target.value) }}></input>
-    </div>
+      <div className="color-picker">
+        <input type="color" onChange={(e) => { setColor(e.target.value) }}></input>
+      </div>
       <div className="todo-list-component">
         <div className="add-todo-container">
           <TextField
@@ -49,7 +64,7 @@ function TodoList() {
             variant="filled"
             className="add-todo"
             value={todo}
-            onKeyPress={(e) => { if(e.key === 'Enter') { setTodos([{ text: e.target.value, id: uuidv4() }, ...todos]); setTodo('') } }}
+            onKeyPress={handleAddTodo}
             onChange={(e) => { setTodo(e.target.value)  }}
           />
         </div>
