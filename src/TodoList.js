@@ -54,7 +54,7 @@ function TodoList() {
   return (
     <div>
       <div className="color-picker">
-        <input type="color" onChange={(e) => { setColor(e.target.value) }}></input>
+        <input type="color" onChange={(e) => { setColor(e.target.value) }} value={color}></input>
       </div>
       <div className="todo-list-component">
         <div className="add-todo-container">
@@ -70,7 +70,7 @@ function TodoList() {
         </div>
         <div className="todo-list-container">
           <ul className="list">
-            <TransitionGroup>
+            <TransitionGroup className="list-transition-group">
               {list}
             </TransitionGroup>
           </ul>
