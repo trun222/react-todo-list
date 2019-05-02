@@ -10,7 +10,7 @@ import uuidv4 from 'uuid/v4';
 function TodoList() {
   const [todo, setTodo] = useState('');
   const [todos, setTodos] = useState([]);
-  let [list, setList] = useState([]);
+  const [list, setList] = useState([]);
   const [todoCount, setTodoCount] = useState('');
   const [color, setColor] = useState('#d3d3d3');
 
